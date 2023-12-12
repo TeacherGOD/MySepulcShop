@@ -22,7 +22,7 @@ public class ShopService {
     }
 
     public List<Shop> getShopData() {
-        String query= "SELECT shop.id, shop.name, adress.city, adress.street, adress.house, adress.\"adressIndex\" FROM shop, adress where shop.\"idAdress\" = adress.id";
+        String query= "SELECT shop.id, shop.name, address.city, address.street, address.house, address.\"address_index\" FROM shop, address where shop.\"id_address\" = address.id";
         List<Shop> shops=jdbcTemplate.query(query,(ResultSet rs, int rowNum) ->
                 {
                     Shop shop = new Shop();
@@ -31,7 +31,7 @@ public class ShopService {
                     shop.setCity(rs.getString("city"));
                     shop.setStreet(rs.getString("street"));
                     shop.setHouseNum(rs.getInt("house"));
-                    shop.setAddressIndex(rs.getInt("adressIndex"));
+                    shop.setAddressIndex(rs.getInt("address_index"));
                     return shop;
                 }
         );

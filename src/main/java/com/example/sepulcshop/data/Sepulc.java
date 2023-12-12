@@ -1,5 +1,13 @@
 package com.example.sepulcshop.data;
 
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "sepulc")
 public class Sepulc {
 
 //    private Integer id;
@@ -61,11 +69,16 @@ public class Sepulc {
 
 
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String description;
     private Integer price;
     private String imagePath;
+
+
 
     @Override
     public String toString() {
@@ -74,7 +87,7 @@ public class Sepulc {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", imagePath='" + imagePath + '\'' +
+                ", image_path='" + imagePath + '\'' +
                 '}';
     }
 

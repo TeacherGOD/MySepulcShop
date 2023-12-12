@@ -1,12 +1,23 @@
 package com.example.sepulcshop.data;
 
+
+
+
+import javax.persistence.*;
+
+@Entity
 public class Shop {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String City;
     private String street;
     private Integer houseNum;
+
     private Integer addressIndex;
+
 
     @Override
     public String toString() {
