@@ -33,6 +33,12 @@
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <script defer src="/assets/js/scripts.min.js?v=93601584"></script>
+
+
+
+
+  <meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+  <meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
 </head>
 <body class="Site">
   <!--if lt IE 8
@@ -81,8 +87,16 @@
                 <p th:text="${sepulc.price}+'руб.'">
 
                 </p>
-                <button class="btn btn_primary btn_outline" data-sendstatus="CART" data-bookid="[1111]" data-btntype="check" data-btnradio="buyblock" data-check="false" data-alttext="В корзине"><span class="btn-icon"><img src="/assets/img/icons/shopping-basket.svg" alt="shopping-basket.svg"/></span><span class="btn-content">Купить</span>
+                <form action="/SepulcBox" th:action="@{'/SepulcBox/' + ${sepulc.id}}" th:method="post"  method="post">
+                  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <button  class="btn btn_primary btn_outline" data-sendstatus="CART" data-bookid="[1111]"
+                        data-btntype="check" data-btnradio="buyblock" data-check="false" data-alttext="В корзине">
+                  <span class="btn-icon"><img src="/assets/img/icons/shopping-basket.svg" alt="shopping-basket.svg"/>
+                  </span>
+                  <span class="btn-content">Купить
+                  </span>
                 </button>
+                </form>
               </div>
             </div>
 <!--            <div class="Spoiler-hide">-->

@@ -1,4 +1,4 @@
-package com.example.sepulcshop.data;
+package com.example.sepulcshop.security;
 
 
 
@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="users")
-public class User {
+public class SepulcstoreUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -25,7 +25,7 @@ public class User {
                 '}';
     }
 
-    public User() {
+    public SepulcstoreUser() {
     }
 
     public Integer getId() {

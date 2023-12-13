@@ -389,6 +389,7 @@ header {
 .Header-cart {
     position: relative;
     display: flex;
+    min-width: 15%;
     width: auto;
 }
 @media screen and (max-width: 990px) {
